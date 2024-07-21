@@ -23,13 +23,13 @@
     <form method="POST" action="{{ url_for('choose_skills') }}">
         <input type="hidden" name="name" value="{{ character.name }}">
         <input type="hidden" name="race" value="{{ character.race }}">
-        <input type="hidden" name="strength" value="{{ character.abilities['strength'] }}">
-        <input type="hidden" name="dexterity" value="{{ character.abilities['dexterity'] }}">
-        <input type="hidden" name="constitution" value="{{ character.abilities['constitution'] }}">
-        <input type="hidden" name="intelligence" value="{{ character.abilities['intelligence'] }}">
-        <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
-        <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
-        
+        <input type="hidden" name="strength" value="{{ abilities['strength'] }}">
+        <input type="hidden" name="dexterity" value="{{ abilities['dexterity'] }}">
+        <input type="hidden" name="constitution" value="{{ abilities['constitution'] }}">
+        <input type="hidden" name="intelligence" value="{{ abilities['intelligence'] }}">
+        <input type="hidden" name="wisdom" value="{{ abilities['wisdom'] }}">
+        <input type="hidden" name="charisma" value="{{ abilities['charisma'] }}">
+
         <label for="class-select">Доступные классы:</label>
         <select name="class" id="class-select" onchange="updateClassInfo()" required>
             <option value="">-- Выберите класс --</option>

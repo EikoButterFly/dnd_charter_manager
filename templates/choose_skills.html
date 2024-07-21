@@ -17,15 +17,14 @@
         <input type="hidden" name="intelligence" value="{{ character.abilities['intelligence'] }}">
         <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
         <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
-        
-        <label for="skills">Навыки:</label>
-        <select name="skills" id="skills" multiple required>
-            {% for skill, attribute in skill_attributes.items() %}
-            <option value="{{ skill }}">{{ skill }} ({{ attribute }})</option>
-            {% endfor %}
-        </select>
-        <br>
-        
+        <input type="hidden" name="class" value="{{ selected_class }}">
+
+        {% for skill, attribute in skill_attributes.items() %}
+        <label>
+            <input type="checkbox" name="skills" id="skills" value="{{ skill }}">
+            {{ skill }} ({{ attribute }})
+        </label>
+        {% endfor %}
         <button type="submit">Завершить Создание Персонажа</button>
     </form>
 </body>

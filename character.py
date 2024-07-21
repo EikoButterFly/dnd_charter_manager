@@ -1,41 +1,40 @@
 class Character:
-    def __init__(self, name, race, abilities):
+    def __init__(self, name, race, abilities, char_classes=None, level=1, experience=0, skills=None, successes=0, failures=0, background="", alignment="", player_name="", inspiration=0, proficiency_bonus=2, saving_throws=None, skills_proficiencies=None, passive_perception=0, languages_and_proficiencies="", armor_class=10, initiative=0, speed=30, max_hp=10, current_hp=10, temp_hp=0, hit_dice="1d10", death_saves=None, attacks_and_spellcasting=None, equipment=None, character_traits="", ideals="", bonds="", flaws="", features_and_traits="", spells=None, notes=""):
         self.name = name
         self.race = race
         self.abilities = abilities
-        self.char_classes = {}
-        self.level = 1
-        self.experience = 0
-        self.skills = {}
-        self.successes = 0
-        self.failures = 0
-        self.background = ""
-        self.alignment = ""
-        self.player_name = ""
-        self.inspiration = 0
-        self.proficiency_bonus = 2
-        self.saving_throws = {}
-        self.skills_proficiencies = {}
-        self.passive_perception = 0
-        self.languages_and_proficiencies = ""
-        self.armor_class = 10
-        self.initiative = 0
-        self.speed = 30
-        self.max_hp = 10
-        self.current_hp = 10
-        self.temp_hp = 0
-        self.hit_dice = "1d10"
-        self.death_saves = {"successes": 0, "failures": 0}
-        self.attacks_and_spellcasting = []
-        self.equipment = []
-        self.character_traits = ""
-        self.ideals = ""
-        self.bonds = ""
-        self.flaws = ""
-        self.features_and_traits = ""
-        self.spells = []
-        self.notes = ""
-        self.skills = {}  # Новый атрибут для хранения навыков
+        self.char_classes = char_classes if char_classes else {}
+        self.level = level
+        self.experience = experience
+        self.skills = skills if skills else {}
+        self.successes = successes
+        self.failures = failures
+        self.background = background
+        self.alignment = alignment
+        self.player_name = player_name
+        self.inspiration = inspiration
+        self.proficiency_bonus = proficiency_bonus
+        self.saving_throws = saving_throws if saving_throws else {}
+        self.skills_proficiencies = skills_proficiencies if skills_proficiencies else {}
+        self.passive_perception = passive_perception
+        self.languages_and_proficiencies = languages_and_proficiencies
+        self.armor_class = armor_class
+        self.initiative = initiative
+        self.speed = speed
+        self.max_hp = max_hp
+        self.current_hp = current_hp
+        self.temp_hp = temp_hp
+        self.hit_dice = hit_dice
+        self.death_saves = death_saves if death_saves else {"successes": 0, "failures": 0}
+        self.attacks_and_spellcasting = attacks_and_spellcasting if attacks_and_spellcasting else []
+        self.equipment = equipment if equipment else []
+        self.character_traits = character_traits
+        self.ideals = ideals
+        self.bonds = bonds
+        self.flaws = flaws
+        self.features_and_traits = features_and_traits
+        self.spells = spells if spells else []
+        self.notes = notes
 
     def __repr__(self):
         return f"<Character(name={self.name}, race={self.race}, abilities={self.abilities}, classes={self.char_classes})>"

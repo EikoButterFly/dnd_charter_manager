@@ -1,4 +1,5 @@
 import json
+from character import Character
 
 def load_characters(filepath='data/characters.json'):
     try:

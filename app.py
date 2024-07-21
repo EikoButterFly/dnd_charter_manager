@@ -78,6 +78,7 @@ def generate_random_abilities():
         rolls = [random.randint(1, 6) for _ in range(4)]
         rolls.remove(min(rolls))
         abilities.append(sum(rolls))
+    print(f"Generated abilities: {abilities}")  # Логирование сгенерированных значений
     return abilities
 
 @app.route('/add_character', methods=['GET', 'POST'])
@@ -89,10 +90,36 @@ def add_character():
         abilities = generate_random_abilities()
         session['abilities'] = abilities
         
+        print(f"Name: {name}")
+        print(f"Race: {race}")
+        print(f"Abilities: {abilities}")
+
         new_character = Character(name, race, {})
-        available_classes = get_available_classes({attr: max(abilities) for attr in ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']})
-        return render_template('choose_class.html', character=new_character, available_classes=available_classes, abilities=abilities, class_features=class_features)
+        available_classes = get_available_classes({
+            'strength': abilities[0],
+            'dexterity': abilities[1],
+            'constitution': abilities[2],
+            'intelligence': abilities[3],
+            'wisdom': abilities[4],
+            'charisma': abilities[5]
+        })
+        print(f"Available classes: {available_classes}")
+        return render_template('choose_class.html', character=new_character, available_classes=available_classes, abilities={
+            'strength': abilities[0],
+            'dexterity': abilities[1],
+            'constitution': abilities[2],
+            'intelligence': abilities[3],
+            'wisdom': abilities[4],
+            'charisma': abilities[5]
+        }, class_features=class_features)
     return render_template('add_character.html', races=races)
+
+@app.route('/character/<int:character_id>/delete', methods=['POST'])
+def delete_character(character_id):
+    if 0 <= character_id < len(characters):
+        del characters[character_id]
+        save_characters(characters)
+    return redirect(url_for('index'))
 
 @app.route('/choose_class', methods=['POST'])
 def choose_class():
@@ -116,7 +143,7 @@ def choose_skills():
     name = request.form['name']
     race = request.form['race']
     
-    # Отладочные сообщения
+    # Логирование значений
     print(f"Name: {name}")
     print(f"Race: {race}")
     print(f"Form Data: {request.form}")
@@ -131,18 +158,12 @@ def choose_skills():
     }
 
     selected_class = request.form['class']
-    skills = request.form.getlist('skills')
+    
+    # Логирование значений
+    print(f"Selected class: {selected_class}")
+    print(f"Abilities: {abilities}")
 
-    new_character = Character(name, race, abilities)
-    new_character.add_class(selected_class, 1)
-
-    for skill in skills:
-        skill_attr = skill_attributes[skill]
-        new_character.skills[skill] = abilities[skill_attr]
-
-    characters.append(new_character)
-    save_characters(characters)
-    return redirect(url_for('index'))
+    return render_template('choose_skills.html', character={'name': name, 'race': race, 'abilities': abilities}, selected_class=selected_class, skill_attributes=skill_attributes)
 
 @app.route('/finalize_character', methods=['POST'])
 def finalize_character():

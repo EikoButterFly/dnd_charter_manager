@@ -18,6 +18,19 @@
             document.getElementById("race-speed").innerText = raceInfo.speed || "";
             document.getElementById("race-features").innerText = (raceInfo.features || []).join(", ");
         }
+
+        function generateRandomAbilities() {
+            const attributes = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+            attributes.forEach(attr => {
+                const rolls = [];
+                for (let i = 0; i < 4; i++) {
+                    rolls.push(Math.floor(Math.random() * 6) + 1);
+                }
+                rolls.sort((a, b) => b - a);
+                const sum = rolls[0] + rolls[1] + rolls[2];
+                document.getElementById(attr).value = sum;
+            });
+        }
     </script>
 </head>
 <body>
@@ -40,6 +53,8 @@
             <p>Скорость: <span id="race-speed"></span></p>
             <p>Особенности: <span id="race-features"></span></p>
         </div>
+        <br>
+        <button type="button" onclick="generateRandomAbilities()">Сгенерировать Характеристики</button>
         <br>
         <label for="strength">Сила:</label>
         <input type="number" id="strength" name="strength" required>
