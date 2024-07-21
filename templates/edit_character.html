@@ -15,6 +15,9 @@
         <label for="race">Раса:</label>
         <input type="text" id="race" name="race" value="{{ character.race }}" required>
         <br>
+        <label for="player_name">Имя Игрока:</label>
+        <input type="text" id="player_name" name="player_name" value="{{ character.player_name }}" required>
+        <br>
         <label for="strength">Сила:</label>
         <input type="number" id="strength" name="strength" value="{{ character.abilities['strength'] }}" required>
         <br>
@@ -33,9 +36,105 @@
         <label for="charisma">Харизма:</label>
         <input type="number" id="charisma" name="charisma" value="{{ character.abilities['charisma'] }}" required>
         <br>
+        <label for="background">Предыстория:</label>
+        <input type="text" id="background" name="background" value="{{ character.background }}" required>
+        <br>
+        <label for="alignment">Мировоззрение:</label>
+        <input type="text" id="alignment" name="alignment" value="{{ character.alignment }}" required>
+        <br>
+        <label for="inspiration">Вдохновение:</label>
+        <input type="number" id="inspiration" name="inspiration" value="{{ character.inspiration }}" required>
+        <br>
+        <label for="proficiency_bonus">Бонус Мастерства:</label>
+        <input type="number" id="proficiency_bonus" name="proficiency_bonus" value="{{ character.proficiency_bonus }}" required>
+        <br>
+        <label for="armor_class">Класс Доспеха:</label>
+        <input type="number" id="armor_class" name="armor_class" value="{{ character.armor_class }}" required>
+        <br>
+        <label for="initiative">Инициатива:</label>
+        <input type="number" id="initiative" name="initiative" value="{{ character.initiative }}" required>
+        <br>
+        <label for="speed">Скорость:</label>
+        <input type="number" id="speed" name="speed" value="{{ character.speed }}" required>
+        <br>
+        <label for="max_hp">Максимальное Здоровье:</label>
+        <input type="number" id="max_hp" name="max_hp" value="{{ character.max_hp }}" required>
+        <br>
+        <label for="current_hp">Текущее Здоровье:</label>
+        <input type="number" id="current_hp" name="current_hp" value="{{ character.current_hp }}" required>
+        <br>
+        <label for="temp_hp">Временное Здоровье:</label>
+        <input type="number" id="temp_hp" name="temp_hp" value="{{ character.temp_hp }}" required>
+        <br>
+        <label for="hit_dice">Кубики Здоровья:</label>
+        <input type="text" id="hit_dice" name="hit_dice" value="{{ character.hit_dice }}" required>
+        <br>
+        <label for="death_saves_successes">Спасброски от Смерти (Успехи):</label>
+        <input type="number" id="death_saves_successes" name="death_saves_successes" value="{{ character.death_saves['successes'] }}" required>
+        <br>
+        <label for="death_saves_failures">Спасброски от Смерти (Неудачи):</label>
+        <input type="number" id="death_saves_failures" name="death_saves_failures" value="{{ character.death_saves['failures'] }}" required>
+        <br>
+        <label for="passive_perception">Пассивное Восприятие:</label>
+        <input type="number" id="passive_perception" name="passive_perception" value="{{ character.passive_perception }}" required>
+        <br>
+        <label for="languages_and_proficiencies">Языки и Владения:</label>
+        <textarea id="languages_and_proficiencies" name="languages_and_proficiencies" required>{{ character.languages_and_proficiencies }}</textarea>
+        <br>
+        <label for="character_traits">Черты Характера:</label>
+        <textarea id="character_traits" name="character_traits" required>{{ character.character_traits }}</textarea>
+        <br>
+        <label for="ideals">Идеалы:</label>
+        <textarea id="ideals" name="ideals" required>{{ character.ideals }}</textarea>
+        <br>
+        <label for="bonds">Привязанности:</label>
+        <textarea id="bonds" name="bonds" required>{{ character.bonds }}</textarea>
+        <br>
+        <label for="flaws">Слабости:</label>
+        <textarea id="flaws" name="flaws" required>{{ character.flaws }}</textarea>
+        <br>
+        <label for="features_and_traits">Умения и Способности:</label>
+        <textarea id="features_and_traits" name="features_and_traits" required>{{ character.features_and_traits }}</textarea>
+        <br>
         <label for="notes">Заметки:</label>
         <textarea id="notes" name="notes">{{ character.notes }}</textarea>
         <br>
+        <h2>Классы и Уровни</h2>
+        {% for class, level in character.char_classes.items() %}
+            <label for="class_{{ class }}">{{ class }}:</label>
+            <input type="number" id="class_{{ class }}" name="char_classes[{{ class }}]" value="{{ level }}" required>
+            <br>
+        {% endfor %}
+        <h2>Спасброски</h2>
+        {% for save, value in character.saving_throws.items() %}
+            <label for="save_{{ save }}">{{ save }}:</label>
+            <input type="number" id="save_{{ save }}" name="saving_throws[{{ save }}]" value="{{ value }}" required>
+            <br>
+        {% endfor %}
+        <h2>Навыки и Владения</h2>
+        {% for skill, value in character.skills_proficiencies.items() %}
+            <label for="skill_{{ skill }}">{{ skill }}:</label>
+            <input type="number" id="skill_{{ skill }}" name="skills_proficiencies[{{ skill }}]" value="{{ value }}" required>
+            <br>
+        {% endfor %}
+        <h2>Атаки и Заклинания</h2>
+        {% for attack in character.attacks_and_spellcasting %}
+            <label for="attack_{{ loop.index }}">Атака {{ loop.index }}:</label>
+            <input type="text" id="attack_{{ loop.index }}" name="attacks_and_spellcasting[]" value="{{ attack }}" required>
+            <br>
+        {% endfor %}
+        <h2>Снаряжение</h2>
+        {% for item in character.equipment %}
+            <label for="item_{{ loop.index }}">Предмет {{ loop.index }}:</label>
+            <input type="text" id="item_{{ loop.index }}" name="equipment[]" value="{{ item }}" required>
+            <br>
+        {% endfor %}
+        <h2>Заклинания</h2>
+        {% for spell in character.spells %}
+            <label for="spell_{{ loop.index }}">Заклинание {{ loop.index }}:</label>
+            <input type="text" id="spell_{{ loop.index }}" name="spells[]" value="{{ spell }}" required>
+            <br>
+        {% endfor %}
         <button type="submit">Сохранить</button>
     </form>
     <a href="{{ url_for('character_detail', character_id=character_id) }}">Отмена</a>

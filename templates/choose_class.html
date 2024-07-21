@@ -18,13 +18,14 @@
         <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
         <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
 
-        {% for char_class in available_classes %}
-        <label>
-            <input type="checkbox" name="classes" value="{{ char_class }}">
-            {{ char_class }}
-        </label>
-        <br>
-        {% endfor %}
+        <label for="class-select">Доступные классы:</label>
+        <select name="classes" id="class-select">
+            <option value="">-- Выберите класс --</option>
+            {% for char_class in available_classes %}
+            <option value="{{ char_class }}">{{ char_class }}</option>
+            {% endfor %}
+        </select>
+
         <button type="submit">Создать Персонажа</button>
     </form>
 </body>

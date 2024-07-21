@@ -1,16 +1,17 @@
 class_requirements = {
-    "Бард": {"charisma": 8},
-    "Варвар": {"strength": 12},
-    "Воин": {"strength": 10, "dexterity": 10},
-    "Волшебник": {"intelligence": 6},
-    "Друид": {"wisdom": 8},
-    "Жрец": {"wisdom": 8},
-    "Колдун": {"charisma": 8},
-    "Монах": {"dexterity": 8, "wisdom": 8},
-    "Паладин": {"strength": 10, "charisma": 10},
-    "Плут": {"dexterity": 8},
-    "Следопыт": {"dexterity": 10, "wisdom": 10},
-    "Чародей": {"charisma": 6}
+    "Бард": {"charisma": 13},
+    "Варвар": {"strength": 13},
+    "Воин": {"strength": 13, "dexterity": 13},
+    "Волшебник": {"intelligence": 13},
+    "Друид": {"wisdom": 13},
+    "Жрец": {"wisdom": 13},
+    "Изобретатель": {"intelligence": 13},
+    "Колдун": {"charisma": 13},
+    "Монах": {"dexterity": 13, "wisdom": 13},
+    "Паладин": {"strength": 13, "charisma": 13},
+    "Плут": {"dexterity": 13},
+    "Следопыт": {"dexterity": 13, "wisdom": 13},
+    "Чародей": {"charisma": 13}
 }
 
 def get_available_classes(abilities):

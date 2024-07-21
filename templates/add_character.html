@@ -7,13 +7,60 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <title>Добавить Нового Персонажа</title>
+</head>
+<body>
     <h1>Добавить Нового Персонажа</h1>
     <form method="POST">
         <label for="name">Имя:</label>
         <input type="text" id="name" name="name" required>
         <br>
         <label for="race">Раса:</label>
-        <input type="text" id="race" name="race" required>
+        <select name="race" id="race" required>
+            <option value="">-- Выберите расу --</option>
+            <option value="Dragonborn">Драконорожденный</option>
+            <option value="Dwarf">Дварф</option>
+            <option value="Elf">Эльф</option>
+            <option value="Gnome">Гном</option>
+            <option value="Half-Elf">Полуэльф</option>
+            <option value="Half-Orc">Полуорк</option>
+            <option value="Halfling">Полурослик</option>
+            <option value="Human">Человек</option>
+            <option value="Tiefling">Тифлинг</option>
+            <option value="Aarakocra">Ааракокра</option>
+            <option value="Genasi">Генази</option>
+            <option value="Goliath">Голиаф</option>
+            <option value="Aasimar">Аасимар</option>
+            <option value="Bugbear">Багбир</option>
+            <option value="Firbolg">Фирболг</option>
+            <option value="Goblin">Гоблин</option>
+            <option value="Hobgoblin">Хобгоблин</option>
+            <option value="Kenku">Кенку</option>
+            <option value="Kobold">Кобольд</option>
+            <option value="Lizardfolk">Ящеролюд</option>
+            <option value="Orc">Орк</option>
+            <option value="Tabaxi">Табакси</option>
+            <option value="Triton">Тритон</option>
+            <option value="Yuan-ti Pureblood">Юань-ти чистокровный</option>
+            <option value="Changeling">Меняющий облик</option>
+            <option value="Kalashtar">Калаштар</option>
+            <option value="Shifter">Меняющийся</option>
+            <option value="Warforged">Войнорожденный</option>
+            <option value="Gith">Гит</option>
+            <option value="Centaur">Кентавр</option>
+            <option value="Loxodon">Локсодон</option>
+            <option value="Minotaur">Минотавр</option>
+            <option value="Simic Hybrid">Симический гибрид</option>
+            <option value="Vedalken">Ведалкен</option>
+            <option value="Verdan">Вердан</option>
+            <option value="Locathah">Локатах</option>
+            <option value="Grung">Грюн</option>
+            <option value="Satyr">Сатир</option>
+            <option value="Leonin">Леонин</option>
+            <option value="Fairy">Фея</option>
+            <option value="Harengon">Харенгон</option>
+            <option value="Owlin">Оулин</option>
+        </select>
         <br>
         <label for="strength">Сила:</label>
         <input type="number" id="strength" name="strength" required>

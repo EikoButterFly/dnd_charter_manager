@@ -1,14 +1,14 @@
 [
     {
-        "name": "\u043f\u0430\u044b\u0432\u0430\u043f\u044b\u0432\u0430",
-        "race": "sdgsdg",
+        "name": "Eiko ",
+        "race": "Gnome",
         "abilities": {
-            "strength": 12,
-            "dexterity": 13,
-            "constitution": 14,
-            "intelligence": 15,
-            "wisdom": 16,
-            "charisma": 13
+            "strength": 13,
+            "dexterity": 14,
+            "constitution": 10,
+            "intelligence": 12,
+            "wisdom": 4,
+            "charisma": 14
         },
         "char_classes": {
             "\u041f\u0430\u043b\u0430\u0434\u0438\u043d": 1
@@ -20,13 +20,13 @@
         "failures": 0,
         "background": "",
         "alignment": "",
-        "player_name": "",
+        "player_name": "Eiko ",
         "inspiration": 0,
         "proficiency_bonus": 2,
         "saving_throws": {},
         "skills_proficiencies": {},
         "passive_perception": 0,
-        "languages_and_proficiencies": "",
+        "languages_and_proficiencies": "Eiko ",
         "armor_class": 10,
         "initiative": 0,
         "speed": 30,
@@ -40,11 +40,11 @@
         },
         "attacks_and_spellcasting": [],
         "equipment": [],
-        "character_traits": "",
-        "ideals": "",
-        "bonds": "",
-        "flaws": "",
-        "features_and_traits": "",
+        "character_traits": "Eiko ",
+        "ideals": "Eiko ",
+        "bonds": "Eiko ",
+        "flaws": "Eiko ",
+        "features_and_traits": "Eiko ",
         "spells": [],
         "notes": ""
     }
