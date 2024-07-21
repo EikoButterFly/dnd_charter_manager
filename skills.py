@@ -1,0 +1,20 @@
+skill_attributes = {
+    "Акробатика": "dexterity",
+    "Анализ": "intelligence",
+    "Атлетика": "strength",
+    "Внимательность": "wisdom",
+    "Выживание": "wisdom",
+    "Выступление": "charisma",
+    "Запугивание": "charisma",
+    "История": "intelligence",
+    "Ловкость рук": "dexterity",
+    "Магия": "intelligence",
+    "Медицина": "wisdom",
+    "Обман": "charisma",
+    "Природа": "intelligence",
+    "Проницательность": "wisdom",
+    "Религия": "intelligence",
+    "Скрытность": "dexterity",
+    "Убеждение": "charisma",
+    "Уход за животными": "wisdom"
+}

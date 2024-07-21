@@ -34,7 +34,8 @@ class Character:
         self.flaws = ""
         self.features_and_traits = ""
         self.spells = []
-        self.notes = ""  # Новый атрибут для заметок
+        self.notes = ""
+        self.skills = {}  # Новый атрибут для хранения навыков
 
     def __repr__(self):
         return f"<Character(name={self.name}, race={self.race}, abilities={self.abilities}, classes={self.char_classes})>"

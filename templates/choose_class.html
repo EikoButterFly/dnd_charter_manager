@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выбрать Класс</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        const classes = {{ class_features | tojson }};
+        
+        function updateClassInfo() {
+            const classSelect = document.getElementById("class-select");
+            const selectedClass = classSelect.value;
+            const classInfo = classes[selectedClass] || {};
+            
+            document.getElementById("class-description").innerText = classInfo.description || "";
+            document.getElementById("class-features").innerText = (classInfo.features || []).join(", ");
+        }
+    </script>
 </head>
 <body>
     <h1>Выберите Класс для {{ character.name }}</h1>
-    <form method="POST" action="{{ url_for('choose_class') }}">
+    <form method="POST" action="{{ url_for('choose_skills') }}">
         <input type="hidden" name="name" value="{{ character.name }}">
         <input type="hidden" name="race" value="{{ character.race }}">
         <input type="hidden" name="strength" value="{{ character.abilities['strength'] }}">
@@ -17,16 +29,21 @@
         <input type="hidden" name="intelligence" value="{{ character.abilities['intelligence'] }}">
         <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
         <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
-
+        
         <label for="class-select">Доступные классы:</label>
-        <select name="classes" id="class-select">
+        <select name="class" id="class-select" onchange="updateClassInfo()" required>
             <option value="">-- Выберите класс --</option>
             {% for char_class in available_classes %}
             <option value="{{ char_class }}">{{ char_class }}</option>
             {% endfor %}
         </select>
-
-        <button type="submit">Создать Персонажа</button>
+        <br>
+        <div id="class-info">
+            <p>Описание: <span id="class-description"></span></p>
+            <p>Особенности: <span id="class-features"></span></p>
+        </div>
+        
+        <button type="submit">Далее</button>
     </form>
 </body>
 </html>

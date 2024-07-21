@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор Навыков</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Выбор Навыков для {{ character.name }}</h1>
+    <form method="POST" action="{{ url_for('finalize_character') }}">
+        <input type="hidden" name="name" value="{{ character.name }}">
+        <input type="hidden" name="race" value="{{ character.race }}">
+        <input type="hidden" name="strength" value="{{ character.abilities['strength'] }}">
+        <input type="hidden" name="dexterity" value="{{ character.abilities['dexterity'] }}">
+        <input type="hidden" name="constitution" value="{{ character.abilities['constitution'] }}">
+        <input type="hidden" name="intelligence" value="{{ character.abilities['intelligence'] }}">
+        <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
+        <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
+        
+        <label for="skills">Навыки:</label>
+        <select name="skills" id="skills" multiple required>
+            {% for skill, attribute in skill_attributes.items() %}
+            <option value="{{ skill }}">{{ skill }} ({{ attribute }})</option>
+            {% endfor %}
+        </select>
+        <br>
+        
+        <button type="submit">Завершить Создание Персонажа</button>
+    </form>
+</body>
+</html>

@@ -99,42 +99,49 @@
         <label for="notes">Заметки:</label>
         <textarea id="notes" name="notes">{{ character.notes }}</textarea>
         <br>
+        
         <h2>Классы и Уровни</h2>
         {% for class, level in character.char_classes.items() %}
             <label for="class_{{ class }}">{{ class }}:</label>
             <input type="number" id="class_{{ class }}" name="char_classes[{{ class }}]" value="{{ level }}" required>
             <br>
         {% endfor %}
+        
         <h2>Спасброски</h2>
         {% for save, value in character.saving_throws.items() %}
             <label for="save_{{ save }}">{{ save }}:</label>
             <input type="number" id="save_{{ save }}" name="saving_throws[{{ save }}]" value="{{ value }}" required>
             <br>
         {% endfor %}
+        
         <h2>Навыки и Владения</h2>
-        {% for skill, value in character.skills_proficiencies.items() %}
+        {% for skill, value in character.skills.items() %}
             <label for="skill_{{ skill }}">{{ skill }}:</label>
-            <input type="number" id="skill_{{ skill }}" name="skills_proficiencies[{{ skill }}]" value="{{ value }}" required>
+            <input type="number" id="skill_{{ skill }}" name="skills[{{ skill }}]" value="{{ value }}" required>
             <br>
         {% endfor %}
+        
         <h2>Атаки и Заклинания</h2>
         {% for attack in character.attacks_and_spellcasting %}
             <label for="attack_{{ loop.index }}">Атака {{ loop.index }}:</label>
             <input type="text" id="attack_{{ loop.index }}" name="attacks_and_spellcasting[]" value="{{ attack }}" required>
             <br>
         {% endfor %}
+        
         <h2>Снаряжение</h2>
         {% for item in character.equipment %}
             <label for="item_{{ loop.index }}">Предмет {{ loop.index }}:</label>
             <input type="text" id="item_{{ loop.index }}" name="equipment[]" value="{{ item }}" required>
             <br>
         {% endfor %}
+        
         <h2>Заклинания</h2>
         {% for spell in character.spells %}
             <label for="spell_{{ loop.index }}">Заклинание {{ loop.index }}:</label>
             <input type="text" id="spell_{{ loop.index }}" name="spells[]" value="{{ spell }}" required>
             <br>
         {% endfor %}
+        
         <button type="submit">Сохранить</button>
     </form>
     <a href="{{ url_for('character_detail', character_id=character_id) }}">Отмена</a>

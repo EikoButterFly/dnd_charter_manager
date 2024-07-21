@@ -1,14 +1,15 @@
 import json
-from character import Character
 
-def load_characters(filename="data/characters.json"):
+def load_characters(filepath='data/characters.json'):
     try:
-        with open(filename, "r") as file:
+        with open(filepath, 'r', encoding='utf-8') as file:
             characters_data = json.load(file)
-            return [Character(**data) for data in characters_data]
+            characters = [Character(**data) for data in characters_data]
+            return characters
     except FileNotFoundError:
         return []
 
-def save_characters(characters, filename="data/characters.json"):
-    with open(filename, "w") as file:
-        json.dump([char.__dict__ for char in characters], file, indent=4)
+def save_characters(characters, filepath='data/characters.json'):
+    with open(filepath, 'w', encoding='utf-8') as file:
+        characters_data = [character.__dict__ for character in characters]
+        json.dump(characters_data, file, ensure_ascii=False, indent=4)
