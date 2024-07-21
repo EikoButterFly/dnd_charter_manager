@@ -1,0 +1,51 @@
+[
+    {
+        "name": "\u043f\u0430\u044b\u0432\u0430\u043f\u044b\u0432\u0430",
+        "race": "sdgsdg",
+        "abilities": {
+            "strength": 12,
+            "dexterity": 13,
+            "constitution": 14,
+            "intelligence": 15,
+            "wisdom": 16,
+            "charisma": 13
+        },
+        "char_classes": {
+            "\u041f\u0430\u043b\u0430\u0434\u0438\u043d": 1
+        },
+        "level": 1,
+        "experience": 0,
+        "skills": {},
+        "successes": 0,
+        "failures": 0,
+        "background": "",
+        "alignment": "",
+        "player_name": "",
+        "inspiration": 0,
+        "proficiency_bonus": 2,
+        "saving_throws": {},
+        "skills_proficiencies": {},
+        "passive_perception": 0,
+        "languages_and_proficiencies": "",
+        "armor_class": 10,
+        "initiative": 0,
+        "speed": 30,
+        "max_hp": 10,
+        "current_hp": 10,
+        "temp_hp": 0,
+        "hit_dice": "1d10",
+        "death_saves": {
+            "successes": 0,
+            "failures": 0
+        },
+        "attacks_and_spellcasting": [],
+        "equipment": [],
+        "character_traits": "",
+        "ideals": "",
+        "bonds": "",
+        "flaws": "",
+        "features_and_traits": "",
+        "spells": [],
+        "notes": ""
+    }
+]

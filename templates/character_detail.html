@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Персонажа</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ character.name }} ({{ character.race }})</h1>
+    <h2>Классы и Уровни</h2>
+    <ul>
+        {% for class, level in character.char_classes.items() %}
+            <li>{{ class }}: Уровень {{ level }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Характеристики</h2>
+    <ul>
+        <li>Сила: {{ character.abilities['strength'] }}</li>
+        <li>Ловкость: {{ character.abilities['dexterity'] }}</li>
+        <li>Телосложение: {{ character.abilities['constitution'] }}</li>
+        <li>Интеллект: {{ character.abilities['intelligence'] }}</li>
+        <li>Мудрость: {{ character.abilities['wisdom'] }}</li>
+        <li>Харизма: {{ character.abilities['charisma'] }}</li>
+    </ul>
+    <h2>Предыстория и Мировоззрение</h2>
+    <p>Предыстория: {{ character.background }}</p>
+    <p>Мировоззрение: {{ character.alignment }}</p>
+    <h2>Информация об Игроке</h2>
+    <p>Имя Игрока: {{ character.player_name }}</p>
+    <h2>Вдохновение и Мастерство</h2>
+    <p>Вдохновение: {{ character.inspiration }}</p>
+    <p>Бонус Мастерства: {{ character.proficiency_bonus }}</p>
+    <h2>Спасброски</h2>
+    <ul>
+        {% for save, value in character.saving_throws.items() %}
+            <li>{{ save }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Навыки и Владения</h2>
+    <ul>
+        {% for skill, value in character.skills_proficiencies.items() %}
+            <li>{{ skill }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Пассивное Восприятие</h2>
+    <p>{{ character.passive_perception }}</p>
+    <h2>Языки и Владения</h2>
+    <p>{{ character.languages_and_proficiencies }}</p>
+    <h2>Боевые Характеристики</h2>
+    <ul>
+        <li>Класс Доспеха: {{ character.armor_class }}</li>
+        <li>Инициатива: {{ character.initiative }}</li>
+        <li>Скорость: {{ character.speed }} футов</li>
+        <li>Максимальное Здоровье: {{ character.max_hp }}</li>
+        <li>Текущее Здоровье: {{ character.current_hp }}</li>
+        <li>Временное Здоровье: {{ character.temp_hp }}</li>
+        <li>Кубики Здоровья: {{ character.hit_dice }}</li>
+    </ul>
+    <h2>Спасброски от Смерти</h2>
+    <p>Успехи: {{ character.death_saves['successes'] }}</p>
+    <p>Неудачи: {{ character.death_saves['failures'] }}</p>
+    <h2>Атаки и Заклинания</h2>
+    <ul>
+        {% for attack in character.attacks_and_spellcasting %}
+            <li>{{ attack }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Снаряжение</h2>
+    <ul>
+        {% for item in character.equipment %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Черты Характера</h2>
+    <p>{{ character.character_traits }}</p>
+    <h2>Идеалы</h2>
+    <p>{{ character.ideals }}</p>
+    <h2>Привязанности</h2>
+    <p>{{ character.bonds }}</p>
+    <h2>Слабости</h2>
+    <p>{{ character.flaws }}</p>
+    <h2>Умения и Способности</h2>
+    <p>{{ character.features_and_traits }}</p>
+    <h2>Заклинания</h2>
+    <ul>
+        {% for spell in character.spells %}
+            <li>{{ spell }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Заметки</h2>
+        <textarea id="notes" name="notes">{{ character.notes }}</textarea>
+        <br>
+    <a href="{{ url_for('edit_character', character_id=character_id) }}">Редактировать</a>
+    <br>
+    <a href="{{ url_for('index') }}">Назад к списку персонажей</a>
+</body>
+</html>

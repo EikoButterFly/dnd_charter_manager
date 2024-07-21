@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер Персонажей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Менеджер Персонажей</h1>
+    <a href="{{ url_for('add_character') }}">Добавить Нового Персонажа</a>
+    <ul>
+        {% for character in characters %}
+            <li>
+                <a href="{{ url_for('character_detail', character_id=loop.index0) }}">
+                    {{ character.name }} ({{ character.race }} - {{ character.char_classes.keys() | join(', ') }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

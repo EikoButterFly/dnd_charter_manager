@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить Персонажа</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Добавить Нового Персонажа</h1>
+    <form method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="race">Раса:</label>
+        <input type="text" id="race" name="race" required>
+        <br>
+        <label for="strength">Сила:</label>
+        <input type="number" id="strength" name="strength" required>
+        <br>
+        <label for="dexterity">Ловкость:</label>
+        <input type="number" id="dexterity" name="dexterity" required>
+        <br>
+        <label for="constitution">Телосложение:</label>
+        <input type="number" id="constitution" name="constitution" required>
+        <br>
+        <label for="intelligence">Интеллект:</label>
+        <input type="number" id="intelligence" name="intelligence" required>
+        <br>
+        <label for="wisdom">Мудрость:</label>
+        <input type="number" id="wisdom" name="wisdom" required>
+        <br>
+        <label for="charisma">Харизма:</label>
+        <input type="number" id="charisma" name="charisma" required>
+        <br>
+        <button type="submit">Далее</button>
+    </form>
+</body>
+</html>

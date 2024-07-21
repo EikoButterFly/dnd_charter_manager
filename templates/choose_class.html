@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбрать Класс</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Выберите Класс для {{ character.name }}</h1>
+    <form method="POST" action="{{ url_for('choose_class') }}">
+        <input type="hidden" name="name" value="{{ character.name }}">
+        <input type="hidden" name="race" value="{{ character.race }}">
+        <input type="hidden" name="strength" value="{{ character.abilities['strength'] }}">
+        <input type="hidden" name="dexterity" value="{{ character.abilities['dexterity'] }}">
+        <input type="hidden" name="constitution" value="{{ character.abilities['constitution'] }}">
+        <input type="hidden" name="intelligence" value="{{ character.abilities['intelligence'] }}">
+        <input type="hidden" name="wisdom" value="{{ character.abilities['wisdom'] }}">
+        <input type="hidden" name="charisma" value="{{ character.abilities['charisma'] }}">
+
+        {% for char_class in available_classes %}
+        <label>
+            <input type="checkbox" name="classes" value="{{ char_class }}">
+            {{ char_class }}
+        </label>
+        <br>
+        {% endfor %}
+        <button type="submit">Создать Персонажа</button>
+    </form>
+</body>
+</html>
